@@ -1,0 +1,125 @@
+.pokemon-card {
+  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+  border-radius: 15px;
+  padding: 0.8rem;
+  color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  border: 2px solid #404040;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.pokemon-number {
+  color: #ffcb05;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.pokemon-name {
+  color: white;
+  font-size: 1rem;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.pokemon-image-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.6rem;
+  margin-bottom: 0.6rem;
+  display: flex;
+  justify-content: center;
+}
+
+.pokemon-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+}
+
+.pokemon-type {
+  margin-bottom: 0.6rem;
+  display: flex;
+  justify-content: center;
+}
+
+.type-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+}
+
+.type-grass {
+  background: linear-gradient(45deg, #78c850, #5ca935);
+}
+
+.type-fire {
+  background: linear-gradient(45deg, #f08030, #d86128);
+}
+
+.type-water {
+  background: linear-gradient(45deg, #6890f0, #4a7cd8);
+}
+
+.pokemon-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.6rem;
+  border-radius: 8px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  color: #ffcb05;
+  font-size: 0.6rem;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  display: block;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.pokemon-description {
+  color: #e0e0e0;
+  font-size: 0.7rem;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 0.6rem;
+  background: rgba(42, 117, 187, 0.1);
+  padding: 0.5rem;
+  border-radius: 6px;
+  border-left: 2px solid #2a75bb;
+}
+
+.gender-info {
+  text-align: center;
+}
+
+.gender {
+  color: #6890f0;
+  font-weight: bold;
+  font-size: 0.7rem;
+}

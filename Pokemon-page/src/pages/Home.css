@@ -1,0 +1,14 @@
+.home-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+  padding: 2rem;
+}
+
+.home-center-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
