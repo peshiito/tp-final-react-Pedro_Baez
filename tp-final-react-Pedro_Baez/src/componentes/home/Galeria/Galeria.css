@@ -1,0 +1,82 @@
+.galeria {
+  padding: 5rem 0;
+}
+
+.galeria-message {
+  text-align: center;
+  padding: 3rem;
+  background: rgba(26, 26, 46, 0.5);
+  border-radius: 15px;
+  border: 2px dashed var(--primary);
+  margin-bottom: 2rem;
+}
+
+.galeria-message p {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.galeria-message small {
+  color: var(--light);
+  opacity: 0.8;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Estilos para cuando haya Pokémon en la galería */
+.pokemon-card {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  height: 250px;
+  transition: transform 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background: rgba(26, 26, 46, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(108, 92, 231, 0.3);
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05);
+}
+
+.pokemon-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.pokemon-name {
+  font-size: 1.2rem;
+  color: var(--secondary);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .galeria-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .galeria-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .galeria-message {
+    padding: 2rem 1rem;
+  }
+
+  .galeria-message p {
+    font-size: 1.2rem;
+  }
+}
