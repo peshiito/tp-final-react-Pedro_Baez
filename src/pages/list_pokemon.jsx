@@ -27,4 +27,4 @@ const ListPokemon = () => {
   );
 };
 
-export default ListPokemon; // ← ESTA LÍNEA ES CRUCIAL
+export default ListPokemon;

@@ -28,7 +28,6 @@
   gap: 1.5rem;
 }
 
-/* Estilos para cuando haya Pokémon en la galería */
 .pokemon-card {
   border-radius: 10px;
   overflow: hidden;
