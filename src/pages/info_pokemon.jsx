@@ -38,4 +38,4 @@ const InfoPokemon = () => {
   );
 };
 
-export default InfoPokemon; // ← ESTA LÍNEA ES CRUCIAL
+export default InfoPokemon;
