@@ -1,0 +1,85 @@
+.load-more {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.load-more-btn {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--light);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
+
+.load-more-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+}
+
+.load-more-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--light);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.load-count {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin-left: 0.5rem;
+}
+
+.load-more-complete {
+  text-align: center;
+  padding: 2rem;
+  color: var(--secondary);
+  background: rgba(108, 92, 231, 0.1);
+  border-radius: 15px;
+  border: 2px dashed var(--primary);
+}
+
+.complete-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #4caf50;
+}
+
+.load-more-complete p {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.load-more-complete small {
+  opacity: 0.8;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .load-more-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

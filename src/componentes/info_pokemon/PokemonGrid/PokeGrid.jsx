@@ -1,6 +1,6 @@
 import React from "react";
 import PokeCard from "../PokeCard/PokeCard";
-import "./PokemonGrid.css";
+import "./PokeGrid.css";
 
 const PokemonGrid = ({ pokemons, onToggleFavorite, loading }) => {
   if (loading) {

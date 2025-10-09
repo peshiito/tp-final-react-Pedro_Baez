@@ -1,0 +1,194 @@
+.list-pokemon-page {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--darker) 0%,
+    var(--dark) 50%,
+    #2d2d5a 100%
+  );
+  padding-bottom: 2rem;
+}
+
+.mewtwo-header {
+  margin: 2rem 0 3rem;
+}
+
+.mewtwo-message-main {
+  background: linear-gradient(
+    135deg,
+    rgba(108, 92, 231, 0.1),
+    rgba(162, 155, 254, 0.05)
+  );
+  border: 2px solid var(--primary);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.mewtwo-message-main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--secondary),
+    var(--accent)
+  );
+}
+
+.mewtwo-icon {
+  font-size: 3rem;
+  color: var(--secondary);
+  flex-shrink: 0;
+}
+
+.mewtwo-message-main h1 {
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.mewtwo-message-main p {
+  color: var(--light);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.mewtwo-message-main small {
+  color: var(--secondary);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.pokedex-controls {
+  margin-bottom: 2rem;
+}
+
+.pokedex-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: rgba(26, 26, 46, 0.8);
+  border: 1px solid rgba(108, 92, 231, 0.3);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.stat-card i {
+  font-size: 2rem;
+  color: var(--secondary);
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--light);
+  line-height: 1;
+}
+
+.stat-label {
+  display: block;
+  color: var(--secondary);
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+.search-results-info {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(108, 92, 231, 0.1);
+  border-radius: 15px;
+  border: 1px solid var(--primary);
+  margin: 2rem 0;
+}
+
+.search-results-info p {
+  color: var(--light);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.search-results-info strong {
+  color: var(--secondary);
+}
+
+.clear-search-btn {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+  border-radius: 20px;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.clear-search-btn:hover {
+  background: #e74c3c;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .mewtwo-message-main {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .mewtwo-icon {
+    font-size: 2.5rem;
+  }
+
+  .mewtwo-message-main h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pokedex-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .mewtwo-message-main {
+    padding: 1rem;
+  }
+
+  .search-results-info {
+    padding: 1.5rem;
+  }
+}

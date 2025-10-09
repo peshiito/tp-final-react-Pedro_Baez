@@ -11,7 +11,9 @@ const Header = () => {
         <div className="header-content">
           <div className="logo">
             <i className="logo-icon fas fa-dna"></i>
-            <span>Diario de Mewtwo</span>
+            <Link to="/" className="logo-link">
+              <span>Diario de Mewtwo</span>
+            </Link>
           </div>
           <nav className="nav">
             <ul>
@@ -30,12 +32,6 @@ const Header = () => {
                 >
                   Pokédex
                 </Link>
-              </li>
-              <li>
-                <a href="#project">El Proyecto</a>
-              </li>
-              <li>
-                <a href="#quiz">Quiz</a>
               </li>
             </ul>
           </nav>
