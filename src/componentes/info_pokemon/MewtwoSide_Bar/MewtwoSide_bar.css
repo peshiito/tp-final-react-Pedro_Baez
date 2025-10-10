@@ -1,0 +1,119 @@
+.sidebar-mewtwo {
+  position: sticky;
+  top: 120px;
+  height: fit-content;
+  margin-left: 2rem;
+  flex-shrink: 0;
+  align-self: start;
+}
+
+.mewtwo-sidebar-card {
+  background: rgba(15, 15, 26, 0.95);
+  border: 1px solid #a29bfe;
+  border-radius: 15px;
+  padding: 1.5rem;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 25px rgba(162, 155, 254, 0.2);
+}
+
+.sidebar-mewtwo-image {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-mewtwo-image img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  filter: brightness(1.1) contrast(1.2);
+  border-radius: 12px;
+  background: radial-gradient(circle at center, #6c5ce7 0%, #2d2d5a 100%);
+}
+
+.sidebar-mewtwo-content {
+  position: relative;
+}
+
+.mewtwo-quote {
+  background: rgba(108, 92, 231, 0.15);
+  color: #e1e5f2;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid #fd79a8;
+}
+
+.mewtwo-quote p {
+  margin: 0;
+  font-style: normal;
+  line-height: 1.4;
+  font-size: 0.9rem;
+  text-align: justify;
+}
+
+.quote-decoration {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fd79a8, transparent);
+  margin-top: 0.8rem;
+}
+
+.region-legendaries-info {
+  background: rgba(26, 26, 46, 0.6);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.region-legendaries-info h4 {
+  color: #a29bfe;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.legendaries-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.legendary-item {
+  background: linear-gradient(
+    135deg,
+    rgba(108, 92, 231, 0.1),
+    rgba(253, 121, 168, 0.05)
+  );
+  color: #e1e5f2;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  text-align: left;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.legendary-item:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(108, 92, 231, 0.2),
+    rgba(253, 121, 168, 0.1)
+  );
+  transform: translateX(5px);
+}
+
+@media (max-width: 1200px) {
+  .sidebar-mewtwo {
+    margin-left: 1rem;
+  }
+
+  .sidebar-mewtwo-image img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 968px) {
+  .sidebar-mewtwo {
+    display: none;
+  }
+}

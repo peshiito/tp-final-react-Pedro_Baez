@@ -3,6 +3,7 @@ import "./PokeCard.css";
 
 const PokeCard = ({ pokemon, onToggleFavorite }) => {
   const [isFavorite, setIsFavorite] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const handleFavoriteClick = () => {
     setIsFavorite(!isFavorite);
@@ -33,6 +34,10 @@ const PokeCard = ({ pokemon, onToggleFavorite }) => {
     return typeColors[type] || "#68A090";
   };
 
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
     <div className="poke-card">
       <div className="card-header">
@@ -42,20 +47,30 @@ const PokeCard = ({ pokemon, onToggleFavorite }) => {
         <button
           className={`favorite-btn ${isFavorite ? "favorited" : ""}`}
           onClick={handleFavoriteClick}
+          title={isFavorite ? "Quitar de favoritos" : "Agregar a favoritos"}
         >
           <i className={`fas ${isFavorite ? "fa-heart" : "fa-heart"}`}></i>
         </button>
       </div>
 
-      <div className="pokemon-image">
-        <img
-          src={
-            pokemon.sprites.other["official-artwork"].front_default ||
-            pokemon.sprites.front_default
-          }
-          alt={pokemon.name}
-          loading="lazy"
-        />
+      <div className="pokemon-image-container">
+        <div className="pokemon-image">
+          {!imageError ? (
+            <img
+              src={
+                pokemon.sprites.other["official-artwork"]?.front_default ||
+                pokemon.sprites.front_default
+              }
+              alt={pokemon.name}
+              onError={handleImageError}
+              loading="lazy"
+            />
+          ) : (
+            <div className="image-placeholder">
+              <i className="fas fa-question"></i>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="pokemon-info">
@@ -102,6 +117,31 @@ const PokeCard = ({ pokemon, onToggleFavorite }) => {
               ></div>
             </div>
             <span className="stat-value">{pokemon.stats[1].base_stat}</span>
+          </div>
+
+          <div className="stat">
+            <span className="stat-label">DEF</span>
+            <div className="stat-bar">
+              <div
+                className="stat-fill"
+                style={{
+                  width: `${(pokemon.stats[2].base_stat / 255) * 100}%`,
+                  backgroundColor: getTypeColor(pokemon.types[0].type.name),
+                }}
+              ></div>
+            </div>
+            <span className="stat-value">{pokemon.stats[2].base_stat}</span>
+          </div>
+        </div>
+
+        <div className="pokemon-abilities">
+          <span className="abilities-label">Habilidades:</span>
+          <div className="abilities-list">
+            {pokemon.abilities.slice(0, 2).map((ability, index) => (
+              <span key={index} className="ability">
+                {ability.ability.name.replace("-", " ")}
+              </span>
+            ))}
           </div>
         </div>
       </div>

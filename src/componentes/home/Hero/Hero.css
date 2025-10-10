@@ -1,4 +1,4 @@
-.hero {
+.hero-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -7,12 +7,20 @@
   padding: 4rem 0;
 }
 
-.hero-content {
+.hero-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 100%;
+}
+
+.hero-text-content {
   flex: 1;
   max-width: 600px;
 }
 
-.hero-title {
+.hero-main-title {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
   background: linear-gradient(90deg, var(--secondary), var(--primary));
@@ -22,14 +30,14 @@
   line-height: 1.2;
 }
 
-.hero-subtitle {
+.hero-description {
   font-size: 1.2rem;
   color: var(--secondary);
   margin-bottom: 2rem;
   line-height: 1.6;
 }
 
-.mewtwo-speech {
+.mewtwo-dialogue {
   background: rgba(108, 92, 231, 0.1);
   border-left: 4px solid var(--primary);
   padding: 1.5rem;
@@ -38,7 +46,7 @@
   position: relative;
 }
 
-.mewtwo-speech::before {
+.mewtwo-dialogue::before {
   content: "";
   position: absolute;
   top: -10px;
@@ -50,19 +58,19 @@
   border-bottom: 10px solid var(--primary);
 }
 
-.speech-text {
+.dialogue-text {
   font-style: italic;
   line-height: 1.6;
   color: var(--light);
 }
 
-.cta-buttons {
+.hero-actions {
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
 }
 
-.hero-image {
+.hero-visual-area {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -70,55 +78,55 @@
   position: relative;
 }
 
-.mewtwo-container {
+.mewtwo-hero-container {
   position: relative;
   width: 400px;
   height: 400px;
 }
 
-.mewtwo-img {
+.mewtwo-hero-image {
   width: 100%;
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 0 20px rgba(108, 92, 231, 0.5));
-  animation: float 6s ease-in-out infinite;
+  animation: hero-float 6s ease-in-out infinite;
 }
 
-.psychic-orb {
+.psionic-orb {
   position: absolute;
   width: 20px;
   height: 20px;
   background: rgba(162, 155, 254, 0.7);
   border-radius: 50%;
   filter: blur(5px);
-  animation: orb-float 8s linear infinite;
+  animation: psionic-float 8s linear infinite;
 }
 
-.orb-1 {
+.psionic-orb.orb-1 {
   top: 10%;
   left: 20%;
   animation-delay: 0s;
 }
 
-.orb-2 {
+.psionic-orb.orb-2 {
   top: 60%;
   left: 10%;
   animation-delay: 1s;
 }
 
-.orb-3 {
+.psionic-orb.orb-3 {
   top: 30%;
   right: 15%;
   animation-delay: 2s;
 }
 
-.orb-4 {
+.psionic-orb.orb-4 {
   bottom: 20%;
   right: 25%;
   animation-delay: 3s;
 }
 
-@keyframes float {
+@keyframes hero-float {
   0%,
   100% {
     transform: translateY(0);
@@ -128,7 +136,7 @@
   }
 }
 
-@keyframes orb-float {
+@keyframes psionic-float {
   0% {
     transform: translateY(0) translateX(0);
     opacity: 0;
@@ -146,27 +154,31 @@
 }
 
 @media (max-width: 968px) {
-  .hero {
+  .hero-section {
     flex-direction: column;
     text-align: center;
   }
 
-  .hero-title {
+  .hero-content-wrapper {
+    flex-direction: column;
+  }
+
+  .hero-main-title {
     font-size: 2.5rem;
   }
 
-  .mewtwo-container {
+  .mewtwo-hero-container {
     width: 300px;
     height: 300px;
   }
 }
 
 @media (max-width: 576px) {
-  .hero-title {
+  .hero-main-title {
     font-size: 2rem;
   }
 
-  .cta-buttons {
+  .hero-actions {
     flex-direction: column;
     align-items: center;
   }

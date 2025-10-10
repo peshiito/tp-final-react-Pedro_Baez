@@ -9,6 +9,17 @@
   padding-bottom: 2rem;
 }
 
+.pokedex-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.pokedex-main {
+  flex: 1;
+}
+
 .mewtwo-header {
   margin: 2rem 0 3rem;
 }
@@ -156,8 +167,275 @@
   transform: translateY(-2px);
 }
 
+.completion-message {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: rgba(76, 175, 80, 0.1);
+  border: 2px solid #4caf50;
+  border-radius: 20px;
+  margin: 2rem 0;
+  color: #4caf50;
+}
+
+.completion-message i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.completion-message h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.completion-message p {
+  color: var(--light);
+  opacity: 0.8;
+}
+
+/* Estados de carga y vacío */
+.loading-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--secondary);
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(108, 92, 231, 0.3);
+  border-left: 4px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1.5rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--secondary);
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  margin-bottom: 1rem;
+  color: var(--secondary);
+  font-size: 1.5rem;
+}
+
+.empty-state p {
+  color: var(--light);
+  opacity: 0.8;
+  font-size: 1.1rem;
+}
+
+/* Animaciones */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pokemon-grid {
+  animation: fadeIn 0.5s ease-out;
+}
+/* BOTÓN MANUAL LOAD MORE */
+.manual-load-section {
+  text-align: center;
+  margin: 3rem 0;
+  padding: 2rem;
+  background: rgba(26, 26, 46, 0.7);
+  border-radius: 15px;
+  border: 2px solid var(--primary);
+}
+
+.load-more-manual-btn {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--light);
+  border: none;
+  padding: 1.2rem 2.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.load-more-manual-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(108, 92, 231, 0.6);
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+}
+
+.load-more-manual-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loading-spinner-small {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--light);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.load-info {
+  margin-top: 1rem;
+}
+
+.load-info span {
+  display: block;
+  color: var(--secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar-mini {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.progress-fill-mini {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+/* Estilo adicional para la cuarta stat card */
+.pokedex-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .manual-load-section {
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .load-more-manual-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .progress-bar-mini {
+    width: 150px;
+  }
+}
+
+/* Estados de error */
+.error-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: rgba(231, 76, 60, 0.1);
+  border: 2px solid #e74c3c;
+  border-radius: 15px;
+  margin: 2rem 0;
+}
+
+.error-icon {
+  font-size: 3rem;
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.error-state h3 {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.error-state p {
+  color: var(--light);
+  margin-bottom: 1.5rem;
+}
+
+.retry-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.retry-btn:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* Transiciones suaves */
+.pokedex-controls > * {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.pokedex-controls > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.pokedex-controls > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.pokedex-controls > *:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.pokedex-stats .stat-card {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.pokedex-stats .stat-card:nth-child(1) {
+  animation-delay: 0.4s;
+}
+.pokedex-stats .stat-card:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.pokedex-stats .stat-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
 /* Responsive */
 @media (max-width: 968px) {
+  .pokedex-layout {
+    grid-template-columns: 1fr;
+  }
+
   .mewtwo-message-main {
     flex-direction: column;
     text-align: center;
@@ -171,6 +449,10 @@
   .mewtwo-message-main h1 {
     font-size: 1.5rem;
   }
+
+  .mewtwo-message-main p {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -181,14 +463,86 @@
   .stat-card {
     padding: 1rem;
   }
+
+  .stat-card i {
+    font-size: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .mewtwo-header {
+    margin: 1rem 0 2rem;
+  }
 }
 
 @media (max-width: 576px) {
   .mewtwo-message-main {
     padding: 1rem;
+    margin: 1rem 0;
   }
 
   .search-results-info {
     padding: 1.5rem;
   }
+
+  .search-results-info p {
+    font-size: 1rem;
+  }
+
+  .stat-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .loading-state,
+  .empty-state {
+    padding: 3rem 1rem;
+  }
+
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+  }
+
+  .empty-icon {
+    font-size: 3rem;
+  }
+
+  .completion-message {
+    padding: 2rem 1rem;
+  }
+
+  .completion-message i {
+    font-size: 2.5rem;
+  }
+
+  .completion-message h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Mejoras visuales para el tema Mewtwo */
+.list-pokemon-page ::selection {
+  background: var(--primary);
+  color: var(--light);
+}
+
+.list-pokemon-page ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.list-pokemon-page ::-webkit-scrollbar-track {
+  background: rgba(26, 26, 46, 0.8);
+}
+
+.list-pokemon-page ::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.list-pokemon-page ::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
 }
