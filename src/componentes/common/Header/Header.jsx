@@ -33,6 +33,16 @@ const Header = () => {
                   Pokédex
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/descripciones"
+                  className={
+                    location.pathname === "/descripciones" ? "active" : ""
+                  }
+                >
+                  Descripciones
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
