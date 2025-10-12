@@ -7,7 +7,7 @@ import "./App.css";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/tp-final-react-Pedro_Baez">
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
