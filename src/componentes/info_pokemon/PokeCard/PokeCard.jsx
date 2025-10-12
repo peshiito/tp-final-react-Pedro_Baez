@@ -1,13 +1,22 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./PokeCard.css";
 
 const PokeCard = ({ pokemon, onToggleFavorite }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const navigate = useNavigate();
 
-  const handleFavoriteClick = () => {
+  const handleFavoriteClick = (e) => {
+    e.stopPropagation();
     setIsFavorite(!isFavorite);
-    onToggleFavorite(pokemon.id, !isFavorite);
+    if (onToggleFavorite) {
+      onToggleFavorite(pokemon.id, !isFavorite);
+    }
+  };
+
+  const handleCardClick = () => {
+    navigate(`/pokemon/${pokemon.id}`);
   };
 
   const getTypeColor = (type) => {
@@ -39,7 +48,7 @@ const PokeCard = ({ pokemon, onToggleFavorite }) => {
   };
 
   return (
-    <div className="poke-card">
+    <div className="poke-card" onClick={handleCardClick}>
       <div className="card-header">
         <span className="pokemon-id">
           #{pokemon.id.toString().padStart(3, "0")}
@@ -143,6 +152,11 @@ const PokeCard = ({ pokemon, onToggleFavorite }) => {
               </span>
             ))}
           </div>
+        </div>
+
+        <div className="card-click-hint">
+          <i className="fas fa-external-link-alt"></i>
+          Click para más detalles
         </div>
       </div>
     </div>

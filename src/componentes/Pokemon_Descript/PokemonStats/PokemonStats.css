@@ -1,0 +1,373 @@
+.pokemon-stats {
+  background: rgba(26, 26, 46, 0.8);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(108, 92, 231, 0.3);
+}
+
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid rgba(108, 92, 231, 0.3);
+}
+
+.stats-header h3 {
+  color: #e1e5f2;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.stats-total {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(108, 92, 231, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(108, 92, 231, 0.4);
+}
+
+.total-label {
+  color: #a29bfe;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.total-value {
+  color: #e1e5f2;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: rgba(108, 92, 231, 0.3);
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+}
+
+.total-progress {
+  margin-bottom: 2rem;
+}
+
+.total-progress-bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+.total-progress-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: all 1s ease;
+  box-shadow: 0 0 10px rgba(108, 92, 231, 0.3);
+}
+
+.total-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #a29bfe;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(108, 92, 231, 0.2);
+  border-radius: 12px;
+  padding: 1.2rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.stat-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(108, 92, 231, 0.4);
+  transform: translateY(-2px);
+}
+
+.stat-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.stat-name-emoji {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex: 1;
+}
+
+.stat-emoji {
+  font-size: 1.5rem;
+  width: 40px;
+  text-align: center;
+}
+
+.stat-name-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.stat-name {
+  color: #e1e5f2;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.stat-description {
+  color: #a29bfe;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.stat-values {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.stat-value {
+  color: #e1e5f2;
+  font-size: 1.2rem;
+  font-weight: bold;
+  min-width: 30px;
+  text-align: right;
+}
+
+.stat-max {
+  color: #a29bfe;
+  font-size: 0.8rem;
+}
+
+.stat-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-bar {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.stat-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s ease;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.stat-percentage {
+  color: #a29bfe;
+  font-size: 0.8rem;
+  font-weight: bold;
+  min-width: 35px;
+  text-align: right;
+}
+
+.effort-points {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(255, 159, 243, 0.2);
+  color: #ff9ff3;
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.effort-points i {
+  font-size: 0.6rem;
+}
+
+/* Resumen de estadísticas */
+.stats-summary {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+.stats-summary h4 {
+  color: #a29bfe;
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  background: rgba(108, 92, 231, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.summary-item:hover {
+  background: rgba(108, 92, 231, 0.2);
+  transform: scale(1.05);
+}
+
+.summary-label {
+  color: #a29bfe;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.summary-value {
+  color: #e1e5f2;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: rgba(108, 92, 231, 0.3);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.summary-value.highlight {
+  background: rgba(76, 217, 100, 0.3);
+  color: #4cd964;
+}
+
+.summary-value.lowlight {
+  background: rgba(255, 59, 48, 0.3);
+  color: #ff3b30;
+}
+
+/* Estados de carga y error */
+.stats-loading,
+.stats-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: #a29bfe;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(108, 92, 231, 0.3);
+  border-top: 3px solid #6c5ce7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.stats-error i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ff9ff3;
+}
+
+.stats-error p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Animaciones */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fillAnimation {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--final-width);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pokemon-stats {
+    padding: 1rem;
+  }
+
+  .stats-header {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+
+  .stat-info {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .stat-bar-container {
+    width: 100%;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .summary-item {
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-item {
+    padding: 1rem;
+  }
+
+  .stat-name-emoji {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .stat-emoji {
+    font-size: 1.2rem;
+  }
+
+  .stat-values {
+    align-self: flex-end;
+  }
+}

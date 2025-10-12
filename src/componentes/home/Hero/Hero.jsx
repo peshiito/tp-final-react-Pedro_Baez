@@ -9,7 +9,7 @@ const Hero = () => {
       <div className="container">
         <div className="hero-content-wrapper">
           <div className="hero-text-content">
-            <h1 className="hero-main-title">Mi Proyecto Wiki Pokémon</h1>
+            <h1 className="hero-main-title">El Diario de Mewtwo</h1>
             <p className="hero-description">
               Una base de conocimiento creada desde mi perspectiva única como el
               Pokémon más poderoso creado por la ciencia.

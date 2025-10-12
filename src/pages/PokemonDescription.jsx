@@ -1,142 +1,167 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Header from "../componentes/common/Header/Header.jsx";
-import Footer from "../componentes/common/Footer/Footer.jsx";
-import PokemonHeader from "../componentes/pokemon_descript/PokemonHeader/PokemonHeader.jsx";
-import PokemonStats from "../componentes/pokemon_descript/PokemonStats/PokemonStats.jsx";
-import PokemonEvolutions from "../componentes/pokemon_descript/PokemonEvolutions/PokemonEvolutions.jsx";
-import PokemonMoves from "../componentes/pokemon_descript/PokemonMoves/PokemonMoves.jsx";
-import MewComments from "../componentes/pokemon_descript/MewComments/MewComments.jsx";
-import "./Pokemon_Descript.css";
+import MewComentarioAsider from "../componentes/Pokemon_Descript/MewComentarioAsider/MewComentarioAsider.jsx";
+import PokemonEvolutions from "../componentes/Pokemon_Descript/PokemonEvolutions/PokemonEvolution.jsx";
+import PokemonMovimientos from "../componentes/Pokemon_Descript/PokemonMovimientos/PokemonMovimientos.jsx";
+import PokemonStats from "../componentes/Pokemon_Descript/PokemonStats/PokemonStats.jsx";
+import AudioPlayer from "../componentes/Pokemon_Descript/PokemonAudio/PokemonAudio.jsx";
+import "./PokemonDescription.css";
 
-const Pokemon_Descript = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [pokemon, setPokemon] = useState(null);
-  const [species, setSpecies] = useState(null);
+const PokemonDescription = () => {
+  const { pokemonId } = useParams();
+  const [pokemonData, setPokemonData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchPokemonData = async () => {
       try {
         setLoading(true);
-        setError(null);
-
-        const pokemonResponse = await fetch(
-          `https://pokeapi.co/api/v2/pokemon/${id}`
+        const response = await fetch(
+          `https://pokeapi.co/api/v2/pokemon/${pokemonId}`
         );
-        if (!pokemonResponse.ok) throw new Error("Pokémon no encontrado");
-        const pokemonData = await pokemonResponse.json();
-
-        const speciesResponse = await fetch(pokemonData.species.url);
-        const speciesData = await speciesResponse.json();
-
-        setPokemon(pokemonData);
-        setSpecies(speciesData);
-      } catch (err) {
-        setError(err.message);
-        console.error("Error fetching Pokémon:", err);
+        const data = await response.json();
+        setPokemonData(data);
+      } catch (error) {
+        console.error("Error fetching Pokémon data:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    if (id) {
+    if (pokemonId) {
       fetchPokemonData();
     }
-  }, [id]);
+  }, [pokemonId]);
 
-  const handlePreviousPokemon = () => {
-    const previousId = Math.max(1, parseInt(id) - 1);
-    navigate(`/pokemon/${previousId}`);
-  };
-
-  const handleNextPokemon = () => {
-    const nextId = parseInt(id) + 1;
-    navigate(`/pokemon/${nextId}`);
+  const getTypeColor = (type) => {
+    const typeColors = {
+      normal: "#A8A878",
+      fire: "#F08030",
+      water: "#6890F0",
+      electric: "#F8D030",
+      grass: "#78C850",
+      ice: "#98D8D8",
+      fighting: "#C03028",
+      poison: "#A040A0",
+      ground: "#E0C068",
+      flying: "#A890F0",
+      psychic: "#F85888",
+      bug: "#A8B820",
+      rock: "#B8A038",
+      ghost: "#705898",
+      dragon: "#7038F8",
+      dark: "#705848",
+      steel: "#B8B8D0",
+      fairy: "#EE99AC",
+    };
+    return typeColors[type] || "#68A090";
   };
 
   if (loading) {
     return (
-      <div className="pokemon-descript-page">
-        <Header /> {/* MISMO HEADER */}
-        <div className="container">
-          <div className="loading-container">
-            <div className="mew-loading">
-              <i className="fas fa-dna"></i>
-              <p>Mew está analizando el Pokémon...</p>
-            </div>
-          </div>
+      <div className="pokemon-description">
+        <Header />
+        <div className="loading-container">
+          <div className="loading-spinner-large"></div>
+          <p>Cargando información del Pokémon...</p>
         </div>
-        <Footer />
       </div>
     );
   }
 
-  if (error || !pokemon) {
+  if (!pokemonData) {
     return (
-      <div className="pokemon-descript-page">
-        <Header /> {/* MISMO HEADER */}
-        <div className="container">
-          <div className="error-container">
-            <i className="fas fa-exclamation-triangle"></i>
-            <h2>Pokémon no encontrado</h2>
-            <p>{error || "El Pokémon solicitado no existe."}</p>
-            <Link to="/pokedex" className="btn btn-primary">
-              Volver a la Pokédex
-            </Link>
-          </div>
+      <div className="pokemon-description">
+        <Header />
+        <div className="error-container">
+          <i className="fas fa-exclamation-triangle"></i>
+          <p>Error al cargar el Pokémon</p>
         </div>
-        <Footer />
       </div>
     );
   }
 
   return (
-    <div className="pokemon-descript-page">
+    <div className="pokemon-description">
       <Header />
-      <div className="container">
-        <div className="pokemon-descript-layout">
-          {/* Contenido principal */}
-          <div className="pokemon-main-content">
-            {/* Navegación */}
-            <div className="pokemon-navigation">
-              <button
-                onClick={handlePreviousPokemon}
-                className="nav-btn prev-btn"
-                disabled={parseInt(id) <= 1}
-              >
-                <i className="fas fa-chevron-left"></i>#
-                {String(parseInt(id) - 1).padStart(3, "0")}
-              </button>
 
-              <Link to="/pokedex" className="pokedex-link">
-                <i className="fas fa-th-list"></i>
-                Volver a Pokédex
-              </Link>
+      <div className="pokemon-description-container">
+        <main className="pokemon-main-content">
+          <section className="pokemon-hero">
+            <div className="pokemon-visual">
+              <div className="pokemon-image-large">
+                <img
+                  src={
+                    pokemonData.sprites.other["official-artwork"]
+                      ?.front_default || pokemonData.sprites.front_default
+                  }
+                  alt={pokemonData.name}
+                  className="main-pokemon-img"
+                />
+              </div>
+              <div className="pokemon-basic-info">
+                <div className="pokemon-header">
+                  <span className="pokemon-id-large">
+                    #{pokemonData.id.toString().padStart(3, "0")}
+                  </span>
+                  <h1 className="pokemon-title">
+                    {pokemonData.name.charAt(0).toUpperCase() +
+                      pokemonData.name.slice(1)}
+                  </h1>
+                </div>
 
-              <button onClick={handleNextPokemon} className="nav-btn next-btn">
-                #{String(parseInt(id) + 1).padStart(3, "0")}
-                <i className="fas fa-chevron-right"></i>
-              </button>
+                <div className="pokemon-types">
+                  {pokemonData.types.map((typeInfo, index) => (
+                    <span
+                      key={index}
+                      className="type-badge-large"
+                      style={{
+                        backgroundColor: getTypeColor(typeInfo.type.name),
+                      }}
+                    >
+                      {typeInfo.type.name.toUpperCase()}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="pokemon-physical">
+                  <div className="physical-item">
+                    <i className="fas fa-ruler-vertical"></i>
+                    <span>Altura: {(pokemonData.height / 10).toFixed(1)}m</span>
+                  </div>
+                  <div className="physical-item">
+                    <i className="fas fa-weight"></i>
+                    <span>Peso: {(pokemonData.weight / 10).toFixed(1)}kg</span>
+                  </div>
+                  <div className="physical-item">
+                    <i className="fas fa-star"></i>
+                    <span>Exp Base: {pokemonData.base_experience}</span>
+                  </div>
+                </div>
+
+                <AudioPlayer pokemonId={pokemonId} />
+              </div>
             </div>
+          </section>
 
-            <PokemonHeader pokemon={pokemon} species={species} />
-
-            <PokemonStats pokemon={pokemon} species={species} />
-
-            <PokemonEvolutions species={species} />
-
-            <PokemonMoves pokemon={pokemon} />
+          <div className="pokemon-details-grid">
+            <PokemonStats pokemonId={pokemonId} />
+            <PokemonMovimientos pokemonId={pokemonId} />
           </div>
 
-          <MewComments pokemon={pokemon} species={species} />
-        </div>
+          <section className="evolution-section">
+            <h2 className="section-title">Línea Evolutiva</h2>
+            <PokemonEvolutions pokemonId={pokemonId} />
+          </section>
+        </main>
+
+        <aside className="pokemon-aside">
+          <MewComentarioAsider pokemonId={pokemonId} />
+        </aside>
       </div>
-      <Footer />
     </div>
   );
 };
 
-export default Pokemon_Descript;
+export default PokemonDescription;
