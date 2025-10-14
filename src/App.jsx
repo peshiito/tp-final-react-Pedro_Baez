@@ -6,11 +6,8 @@ import PokemonDescription from "./pages/PokemonDescription.jsx";
 import "./App.css";
 
 function App() {
-  const basename =
-    import.meta.env.MODE === "production" ? "/tp-final-react-Pedro_Baez" : "/";
-
   return (
-    <Router basename={basename}>
+    <Router>
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
