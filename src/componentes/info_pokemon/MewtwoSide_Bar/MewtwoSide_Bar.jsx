@@ -7,8 +7,8 @@ import MewtwoHoenn from "../../../assets/Mewtwo_regions/Mewtwo_Hoenn.jpeg";
 import MewtwoSinnoh from "../../../assets/Mewtwo_regions/Mewtwo_Sinnoh.jpeg";
 import MewtwoUnova from "../../../assets/Mewtwo_regions/Mewtwo_Unova.jpeg";
 import MewtwoKalos from "../../../assets/Mewtwo_regions/Mewtwo_Kalos.jpeg";
-import MewtwoAlola from "../../../assets/Mewtwo_regions/Mewtwo_alola.jpeg";
-import MewtwoGalar from "../../../assets/Mewtwo_regions/Mewtwo_galar.jpeg";
+import MewtwoAlola from "../../../assets/Mewtwo_regions/Mewtwo_Alola.jpeg";
+import MewtwoGalar from "../../../assets/Mewtwo_regions/Mewtwo_Galar.jpeg";
 
 const MewtwoSidebar = ({ currentRegion }) => {
   const regionData = {
