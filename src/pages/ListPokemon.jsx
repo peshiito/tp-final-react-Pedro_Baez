@@ -6,7 +6,7 @@ import SearchBar from "../componentes/info_pokemon/SearchBar/SearchBar.jsx";
 import PokemonGrid from "../componentes/info_pokemon/PokemonGrid/PokeGrid.jsx";
 import LoadMore from "../componentes/info_pokemon/LoadMore/LoadMore.jsx";
 import PokemonFiltros from "../componentes/info_pokemon/PokemonFiltros/PokeFiltros.jsx";
-import MewtwoSidebar from "../componentes/info_pokemon/MewtwoSide_bar/MewtwoSide_Bar.jsx";
+import MewtwoSidebar from "../componentes/info_pokemon/MewtwoSide_Bar/MewtwoSide_Bar.jsx";
 import usePokemonData from "../hooks/usePokemonData.js";
 import "./ListPokemon.css";
 
