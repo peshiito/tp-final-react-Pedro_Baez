@@ -1,18 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./PokeCard.css";
 
-const PokeCard = ({ pokemon, onToggleFavorite }) => {
+const PokeCard = ({ pokemon }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [imageError, setImageError] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+    setIsFavorite(favoritos.some((fav) => fav.id === pokemon.id));
+  }, [pokemon.id]);
+
   const handleFavoriteClick = (e) => {
     e.stopPropagation();
-    setIsFavorite(!isFavorite);
-    if (onToggleFavorite) {
-      onToggleFavorite(pokemon.id, !isFavorite);
+    const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+    let actualizados;
+    if (isFavorite) {
+      actualizados = favoritos.filter((f) => f.id !== pokemon.id);
+    } else {
+      actualizados = [...favoritos, pokemon];
     }
+
+    localStorage.setItem("favoritos", JSON.stringify(actualizados));
+    setIsFavorite(!isFavorite);
   };
 
   const handleCardClick = () => {
@@ -43,9 +55,7 @@ const PokeCard = ({ pokemon, onToggleFavorite }) => {
     return typeColors[type] || "#68A090";
   };
 
-  const handleImageError = () => {
-    setImageError(true);
-  };
+  const handleImageError = () => setImageError(true);
 
   return (
     <div className="poke-card" onClick={handleCardClick}>
@@ -58,7 +68,7 @@ const PokeCard = ({ pokemon, onToggleFavorite }) => {
           onClick={handleFavoriteClick}
           title={isFavorite ? "Quitar de favoritos" : "Agregar a favoritos"}
         >
-          <i className={`fas ${isFavorite ? "fa-heart" : "fa-heart"}`}></i>
+          <i className={`fas fa-heart ${isFavorite ? "solid" : "regular"}`}></i>
         </button>
       </div>
 
