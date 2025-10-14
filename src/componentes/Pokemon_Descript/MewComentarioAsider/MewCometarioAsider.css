@@ -500,3 +500,31 @@
     padding: 1.2rem;
   }
 }
+.favorite-btn-mini {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #ff6b6b;
+  border-radius: 15px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.favorite-btn-mini:hover {
+  background: rgba(255, 107, 107, 0.1);
+  transform: scale(1.05);
+}
+
+.favorite-btn-mini.favorited {
+  background: #ff6b6b;
+  border-color: #ff6b6b;
+  color: white;
+}
+
+.favorite-btn-mini i {
+  font-size: 0.8rem;
+}

@@ -281,3 +281,205 @@
     min-width: 80px;
   }
 }
+/* Estilos para el estado sin Pokémon */
+.no-pokemon-section {
+  background: rgba(26, 26, 46, 0.95);
+  border-radius: 20px;
+  padding: 3rem;
+  border: 2px solid rgba(108, 92, 231, 0.3);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.search-container-large h2 {
+  color: #e1e5f2;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.search-container-large p {
+  color: #a29bfe;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.search-bar-container {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+}
+
+.search-examples {
+  margin-top: 2rem;
+}
+
+.search-examples h4 {
+  color: #a29bfe;
+  margin-bottom: 1rem;
+}
+
+.example-buttons {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.example-btn {
+  background: rgba(108, 92, 231, 0.2);
+  color: #a29bfe;
+  border: 1px solid rgba(108, 92, 231, 0.4);
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.example-btn:hover {
+  background: rgba(108, 92, 231, 0.4);
+  color: #e1e5f2;
+  transform: translateY(-2px);
+}
+
+/* Placeholders */
+.placeholder-section {
+  background: rgba(26, 26, 46, 0.8);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 2px solid rgba(108, 92, 231, 0.2);
+  height: 100%;
+}
+
+.placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #a29bfe;
+  min-height: 200px;
+  gap: 1rem;
+}
+
+.placeholder-content i {
+  font-size: 3rem;
+  color: rgba(108, 92, 231, 0.3);
+}
+
+.placeholder-content p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.mew-placeholder {
+  background: rgba(15, 15, 26, 0.95);
+  border: 2px solid #ff9ff3;
+  border-radius: 20px;
+  padding: 2rem;
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mew-placeholder h3 {
+  color: #ff9ff3;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Estados de error */
+.error-section {
+  background: rgba(26, 26, 46, 0.95);
+  border-radius: 20px;
+  padding: 3rem;
+  border: 2px solid rgba(255, 107, 107, 0.3);
+  text-align: center;
+}
+
+.error-content i {
+  font-size: 4rem;
+  color: #ff6b6b;
+  margin-bottom: 1.5rem;
+}
+
+.error-content h2 {
+  color: #e1e5f2;
+  margin-bottom: 1rem;
+}
+
+.error-content p {
+  color: #a29bfe;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.clear-search-btn {
+  background: rgba(108, 92, 231, 0.2);
+  color: #a29bfe;
+  border: 1px solid rgba(108, 92, 231, 0.4);
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem auto 0;
+}
+
+.clear-search-btn:hover {
+  background: rgba(108, 92, 231, 0.4);
+  color: #e1e5f2;
+}
+
+/* Barra de búsqueda compacta */
+.search-section {
+  margin-bottom: 2rem;
+}
+
+.search-bar-compact {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.clear-current-btn {
+  background: rgba(255, 107, 107, 0.2);
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 107, 107, 0.4);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clear-current-btn:hover {
+  background: rgba(255, 107, 107, 0.4);
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .no-pokemon-section,
+  .error-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .search-container-large h2 {
+    font-size: 1.5rem;
+  }
+
+  .example-buttons {
+    gap: 0.5rem;
+  }
+
+  .example-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}

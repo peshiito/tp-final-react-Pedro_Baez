@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./MewCometarioAsider.css";
-import MewImage from "../../../assets/Mew/Mew.jpeg";
 
 const MewComentarioAsider = ({ pokemonId }) => {
   const [pokemonData, setPokemonData] = useState(null);
   const [speciesData, setSpeciesData] = useState(null);
   const [mewComment, setMewComment] = useState("");
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     const fetchPokemonData = async () => {
@@ -21,6 +21,9 @@ const MewComentarioAsider = ({ pokemonId }) => {
         setPokemonData(pokemonData);
         setSpeciesData(speciesData);
         generateMewComment(pokemonData, speciesData);
+
+        const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+        setIsFavorite(favoritos.some((fav) => fav.id === pokemonData.id));
       } catch (error) {
         console.error("Error fetching Pokémon data:", error);
       }
@@ -42,7 +45,7 @@ const MewComentarioAsider = ({ pokemonId }) => {
       "Mew?",
       "Mew...",
     ];
-    const sentenceLength = Math.floor(Math.random() * 3) + 2; // 2-4 palabras
+    const sentenceLength = Math.floor(Math.random() * 3) + 2;
     let speech = "";
 
     for (let i = 0; i < sentenceLength; i++) {
@@ -68,6 +71,25 @@ const MewComentarioAsider = ({ pokemonId }) => {
     const fullComment = `MEW: ${mewSpeech} (${cleanDescription})`;
 
     setMewComment(fullComment);
+  };
+
+  const handleFavoriteClick = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    if (!pokemonData) return;
+
+    const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+    let actualizados;
+    if (isFavorite) {
+      actualizados = favoritos.filter((f) => f.id !== pokemonData.id);
+    } else {
+      actualizados = [...favoritos, pokemonData];
+    }
+
+    localStorage.setItem("favoritos", JSON.stringify(actualizados));
+    setIsFavorite(!isFavorite);
   };
 
   const getStatAverage = () => {
@@ -98,7 +120,11 @@ const MewComentarioAsider = ({ pokemonId }) => {
         <div className="mew-header">
           <div className="mew-visual">
             <div className="mew-image-container">
-              <img src={MewImage} alt="Mew" className="mew-img" />
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png"
+                alt="Mew"
+                className="mew-img"
+              />
             </div>
             <div className="mew-title-content">
               <div className="mew-title">
@@ -139,6 +165,25 @@ const MewComentarioAsider = ({ pokemonId }) => {
                 <span className="data-value">
                   {pokemonData.base_experience}
                 </span>
+              </div>
+              <div className="data-row">
+                <span className="data-label">Favorito</span>
+                <button
+                  className={`favorite-btn-mini ${
+                    isFavorite ? "favorited" : ""
+                  }`}
+                  onClick={handleFavoriteClick}
+                  title={
+                    isFavorite ? "Quitar de favoritos" : "Agregar a favoritos"
+                  }
+                >
+                  <i
+                    className={`fas fa-heart ${
+                      isFavorite ? "solid" : "regular"
+                    }`}
+                  ></i>
+                  {isFavorite ? "Sí" : "No"}
+                </button>
               </div>
             </div>
           </div>
